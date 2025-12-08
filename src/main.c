@@ -7,5 +7,9 @@ int main(){
         list.insert(&list,i);
     }
     printf("%d ",list.search(&list,10));
+    printf("%d ",list.del(&list,0));
+    printf("%d ",list.del(&list,5));
+    printf("%d ",list.del(&list,9));
+
 
 }
