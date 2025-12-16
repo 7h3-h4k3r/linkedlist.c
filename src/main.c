@@ -1,15 +1,13 @@
 #include <stdio.h>
-#include "../header/include.h"
+#include <stdlib.h>
+#include "../header/singleLinkedList.h"
 int main(){
-    linkedlist list;
-    __init__(&list);
-    for (int i =0;i<10;i++){
-        list.insert(&list,i);
-    }
-    printf("%d ",list.search(&list,10));
-    printf("%d ",list.del(&list,0));
-    printf("%d ",list.del(&list,5));
-    printf("%d ",list.del(&list,9));
-
-
+    /*
+    Append value 
+    */
+    sllist l;
+    __init__(&l);
+    l.append(&l,10);
+    l.append(&l,20);
+    l.append(&l,30);
 }
