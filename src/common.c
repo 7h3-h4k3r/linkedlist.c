@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int custErr(char *errMsg , const char *func ,const int line , const char *file , int isBreak){
-    printf("\n [*] Error :%s < %s >,< %d >,< %s >",errMsg,func,line,file);
+    printf("[*] Error :%s < function _%s() >,< Line:%d >,< File:%s >\n",errMsg,func,line,file);
     if (isBreak){
         exit(-1);
     }

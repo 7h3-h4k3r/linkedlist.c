@@ -1,11 +1,14 @@
 CC = gcc 
 BUILD = buildExe
 SHELL := /bin/bash
+CFLAGE  = -g
 SRC = src
 EXTERNAL_LIB=$(SRC)/common.c
 
+.PHONEY : clean
+
 $(BUILD)/exe:$(EXTERNAL_LIB)
-	$(CC) $(SRC)/* -o $(BUILD)/exe
+	$(CC) $(CFLAGE) $(SRC)/* -o exe
 
 
 $(EXTERNAL_LIB):
@@ -15,8 +18,8 @@ $(EXTERNAL_LIB):
 	else \
 		git clone https://git.selfmade.ninja/username420sri/common.c.git; \
 		mv common.c/* src/; \
-		rm -rf common.c;\
 	fi
 
-
+clean:
+	rm $(BUILD)/*
 	

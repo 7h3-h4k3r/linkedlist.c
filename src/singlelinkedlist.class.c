@@ -1,31 +1,33 @@
-#include<stdlib.h>
-#include <stdio.h>
-#include "../header/singleLinkedList.h"
+#ifndef SINGLELINKEDLIST_H 
+#define SINGLELINKEDLIST_H 
+
+typedef struct Node{
+    int value;
+   struct Node *next;
+}Node;
 
 
-Node *setData(Node *node, int  src){
-    node->value = src;
-    node->next = NULL;
-    return node;
-}
 
-int _append(sllist *l , int src){
-   Node* new_node = (Node*)xmalloc(sizeof(Node));
-   new_node = setData(new_node,src);
-   if ((!l->head) && (!l->tail)){
-    l->head = new_node;
-    l->tail = new_node;
-    return 0;
-   }
-   l->tail->next = new_node;
-   l->tail = new_node;
 
-}
+typedef struct sllist{
+    Node *head;
+    Node *tail;
+    int (*append)(struct sllist * , int src);
+    int (*delete)(struct sllist* ,int des);
+    Node *(*search)(struct sllist *, int src);
+    int (*update)(struct sllist* ,int src, int des);
+    
+}sllist;
 
-int __init__(sllist *l){
-    l->head = (Node *)xmalloc(sizeof(Node));
-    l->head = NULL;
-    l->tail = (Node *)xmalloc(sizeof(Node));
-    l->tail = NULL;
-    l->append = _append;
-}
+
+
+
+int __init__(sllist *l);
+void *xmalloc(size_t size);
+int custErr(char *errMsg , const char *func , const int line , const char *file,int isBreak);
+int append(sllist *l , int src);
+int delete(sllist *l,int des);
+Node *search(sllist *l, int des);
+int update(sllist *l,int src , int des);
+
+#endif
