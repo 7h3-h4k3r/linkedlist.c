@@ -1,3 +1,4 @@
+
 #ifndef SINGLELINKEDLIST_H 
 #define SINGLELINKEDLIST_H 
 
@@ -17,6 +18,7 @@ typedef struct sllist{
     Node *(*search)(struct sllist *, int src);
     int (*update)(struct sllist* ,int src, int des);
     
+    
 }sllist;
 
 
@@ -29,5 +31,6 @@ int append(sllist *l , int src);
 int delete(sllist *l,int des);
 Node *search(sllist *l, int des);
 int update(sllist *l,int src , int des);
+
 
 #endif
